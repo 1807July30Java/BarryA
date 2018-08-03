@@ -29,9 +29,16 @@ public class Driver {
 		
 		if (op.equalsIgnoreCase("add")) {
 			System.out.println(a +" + "+  b +" = "+obj.add(a, b, dT));
-		} else if(op.equalsIgnoreCase("substract")){
-			System.out.println("Failed");
+		} else if(op.equalsIgnoreCase("multiply")){
+			System.out.println(a +" * "+  b +" = "+obj.multiply(a, b, dT));
 
+		}else if (op.equalsIgnoreCase("substract")) {
+			System.out.println(a +" - "+  b +" = "+obj.substract(a, b, dT));
+		}else if (op.equalsIgnoreCase("divide")) {
+			System.out.println(a +" / "+  b +" = "+obj.divide(a, b, dT));
+		}
+		else {
+			System.out.println("Failed. Try again");
 		}
 		
 		
