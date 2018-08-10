@@ -8,6 +8,11 @@ public class Client {
 	private Boolean isSuper;
 	
 	
+	@Override
+	public String toString() {
+		return "Client [firstName=" + firstName + ", lastName=" + lastName +"]";
+	}
+
 	//superUser Const
 	public Client(String firstName, String lastName, String userName, String password, Boolean isSuper) {
 		super();
@@ -25,12 +30,27 @@ public class Client {
 		this.lastName = lastName;
 		this.userName = userName;
 		this.password = password;
+		this.isSuper = false;
 	}
+	
+	//Default Constructor here below
+	
+	public Client() {
+		super();
+		this.firstName = null;
+		this.lastName = null;
+		this.userName = null;
+		this.password = null;
+		this.isSuper = false;
+		
+	}
+	
 	
 	
 	public Boolean getIsSuper() {
 		return isSuper;
 	}
+
 	public void setIsSuper(Boolean isSuper) {
 		this.isSuper = isSuper;
 	}
