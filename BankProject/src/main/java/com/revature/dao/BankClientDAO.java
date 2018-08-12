@@ -9,5 +9,6 @@ public interface BankClientDAO {
 	public boolean updateClient(Client client);
 	public boolean deleteClient(String username);
 	public Client getClientInfo (String username);
+	public Client getClientInfoAuth (String username, String password);
 
 }

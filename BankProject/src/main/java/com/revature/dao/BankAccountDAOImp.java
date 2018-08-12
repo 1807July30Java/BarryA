@@ -54,6 +54,8 @@ public class BankAccountDAOImp implements BankAccountDAO {
 		return account;
 	}
 
+	//Deleting an Account 
+	
 	public boolean deleteAccount(Account account) {
 		
 		return false;
@@ -98,6 +100,40 @@ public class BankAccountDAOImp implements BankAccountDAO {
 
 		return false;
 		
+		
+	}
+	//deleting all existing records for an account
+
+	@Override
+	public boolean deleteAccountByUser(String username) {
+		if (username == null) {
+			System.out.println(("Enter a Valid username and try again"));
+			return false;
+		}
+			
+		BankClientDAOImp obj = new BankClientDAOImp();
+		double ID = obj.getClientInfo(username).getUserID();
+		
+		PreparedStatement pstmt = null;
+
+		try (Connection con = ConnectionUtil.getConnectionFromFile(filename)) {
+
+			// use a prepared statement
+			String sql = "DELETE FROM BANK_ACCOUNT WHERE USER_ID = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setDouble(1, ID);
+			
+			if (pstmt.executeUpdate() > 0) {
+				System.out.println("Record of "+username+" has been successfully removed");
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return false;
 		
 	}
 

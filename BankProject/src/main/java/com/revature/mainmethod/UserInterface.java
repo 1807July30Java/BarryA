@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import com.revature.dao.*;
+import com.revature.logic.ScannerClass;
 import com.revature.pojo.*;
 import com.revature.util.ConnectionUtil;
 
@@ -16,7 +17,7 @@ public class UserInterface {
 		
 		String filename = "connectionProperties";
 		
-		try {
+	/*	try {
 			Connection con = ConnectionUtil.getConnectionFromFile(filename);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -31,11 +32,16 @@ public class UserInterface {
 		System.out.println(obj.getClientInfo("abarry"));
 		
 		BankAccountDAOImp obj1 = new BankAccountDAOImp();
+		System.out.println(obj1.getAccount("abarry"));
 //		Account ac = new Account("Checking Account", 100);
 //		ac.setCurrentBalance(200);
 //		obj1.addAccount(ac,"abarry");
 		 
-		System.out.println(obj1.getAccount("abarry"));
+	*/
+		
+		
+		ScannerClass.bankUI();
+		
 
 	}
 

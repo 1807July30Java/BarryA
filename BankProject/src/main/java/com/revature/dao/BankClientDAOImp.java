@@ -97,7 +97,10 @@ public class BankClientDAOImp implements BankClientDAO{
 		
 	}
 
+	//Getting client Info by username
+	
 	public Client getClientInfo(String username) {
+		
 		
 		PreparedStatement pstmt = null;
 		Client client = null;
@@ -123,8 +126,41 @@ public class BankClientDAOImp implements BankClientDAO{
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-		
+		;
 		return client;
+	
+	}
+
+	
+public Client getClientInfoAuth(String username,String pass) {
+		PreparedStatement pstmt = null;
+		Client client = null;
+		try(Connection con = ConnectionUtil.getConnectionFromFile(filename)){
+
+			String sql = "SELECT * FROM BANK_CLIENT WHERE USER_NAME= ? AND PASSWORD=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, username);
+			pstmt.setString(2, pass);
+			ResultSet rs = pstmt.executeQuery();
+			
+			while (rs.next()){
+				double userID = rs.getInt("CLIENT_ID");
+				String firstName = rs.getString("FIRST_NAME");
+				String lastName = rs.getString("LAST_NAME");
+				String password = rs.getString("PASSWORD");
+				
+				
+				client = new Client(userID, firstName, lastName, password,username);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		;
+		return client;
+	
 	}
 
 	
