@@ -68,7 +68,9 @@ public class BankTransactionsDAOImp implements BankTransactionDAO{
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-		;
+		for (Transactions tr1 : tr) {
+			System.out.println(tr1);
+		}
 		return tr;
 	}
 	

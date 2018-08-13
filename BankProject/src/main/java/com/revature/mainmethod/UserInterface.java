@@ -13,8 +13,7 @@ import com.revature.util.ConnectionUtil;
 public class UserInterface {
 
 	public static void main(String[] args) {
-			
-		
+				
 		ScannerClass.bankUI();
 
 

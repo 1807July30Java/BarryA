@@ -72,8 +72,8 @@ public class Transactions {
 
 	@Override
 	public String toString() {
-		return "Transactions [transactionTime=" + transactionTime + ", transactionDetail=" + transactionDetail
-				+ ", beginBalance=" + beginBalance + ", endBalance=" + endBalance + "]";
+		return "transactionTime= " + transactionTime + ", transactionDetail= " + transactionDetail
+				+ ", beginBalance= " + beginBalance + ", endBalance= " + endBalance ;
 	}
 
 	public Transactions() {
