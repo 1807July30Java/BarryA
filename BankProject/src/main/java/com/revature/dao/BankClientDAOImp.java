@@ -17,7 +17,7 @@ import com.revature.util.ConnectionUtil;
 public class BankClientDAOImp implements BankClientDAO{
 	private String filename = "connectionProperties";
 	
-
+	/***********************************************************************************************************************************************/
 	
 	// Creating the client account and information.
 
@@ -64,7 +64,7 @@ public class BankClientDAOImp implements BankClientDAO{
 		
 	}
 
-	
+	/***********************************************************************************************************************************************/
 	
 	//Deleting User Account Records
 	public boolean deleteClient(String username) {
@@ -96,6 +96,8 @@ public class BankClientDAOImp implements BankClientDAO{
 		return false;
 		
 	}
+	
+	/***********************************************************************************************************************************************/
 
 	//Getting client Info by username
 	
@@ -126,15 +128,66 @@ public class BankClientDAOImp implements BankClientDAO{
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-		;
+		if (client == null) {
+			return null;
+		}
+		return client;
+	
+	}
+
+	/***********************************************************************************************************************************************/
+	//Check for Password
+	
+	public Client getClientInfoPass(String password) {
+		
+		
+		PreparedStatement pstmt = null;
+		Client client = null;
+		try(Connection con = ConnectionUtil.getConnectionFromFile(filename)){
+
+			String sql = "SELECT * FROM BANK_CLIENT WHERE PASSWORD= ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, password);
+			ResultSet rs = pstmt.executeQuery();
+			
+			while (rs.next()){
+				double userID = rs.getInt("CLIENT_ID");
+				String firstName = rs.getString("FIRST_NAME");
+				String lastName = rs.getString("LAST_NAME");
+				String username = rs.getString("USER_NAME");
+				
+				
+				client = new Client(userID, firstName, lastName, password,username);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		if (client == null) {
+			return null;
+		}
 		return client;
 	
 	}
 
 	
+	
+	/***********************************************************************************************************************************************/
+	
 public Client getClientInfoAuth(String username,String pass) {
+	BankClientDAOImp bc = new BankClientDAOImp();
+
+	
 		PreparedStatement pstmt = null;
 		Client client = null;
+		
+		if ((bc.getClientInfo(username)== null)||(bc.getClientInfoPass(pass)==null)) {
+			System.out.println("Invalid username and password");
+			return null;
+		}
+		
 		try(Connection con = ConnectionUtil.getConnectionFromFile(filename)){
 
 			String sql = "SELECT * FROM BANK_CLIENT WHERE USER_NAME= ? AND PASSWORD=?";
@@ -162,6 +215,9 @@ public Client getClientInfoAuth(String username,String pass) {
 		return client;
 	
 	}
+
+/***********************************************************************************************************************************************/
+
 
 	
 	
