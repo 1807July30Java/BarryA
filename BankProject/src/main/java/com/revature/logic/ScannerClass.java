@@ -57,8 +57,8 @@ public class ScannerClass {
 				String fol = sc.next();
 				if (fol.equalsIgnoreCase("L")) {	
 					System.out.println("You have successfully signed out");
-					break;
-					
+					condition = false;
+					break;	
 				}
 				
 				if (fol.equalsIgnoreCase("X")) {
