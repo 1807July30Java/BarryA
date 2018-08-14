@@ -1,0 +1,47 @@
+.super{
+  background-image: url("https://wallpapercave.com/wp/wc1679764.jpg");
+  background-color: black;
+
+}
+
+p {
+  font-size: 12pt;
+  font-family: cursive;
+  color: white;
+  font-style: normal;
+  text-align: center;
+  text-decoration: none;
+}
+.super{
+  width: 80%;
+  height: 30%;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.myh1{
+  background-color: none;
+  color: red;
+  text-align: center;
+  text-decoration: underline;
+  
+}
+.crypton{
+  width: 70%;
+  height: 70%;
+}
+
+.strenght{
+  text-align: center;
+  text-decoration: underline;
+  background-color: none;
+  color: red;
+}
+
+.fort{
+  text-align: center;
+  text-decoration: underline;
+  background-color: none;
+  color: red;
+}
