@@ -20,6 +20,15 @@ public class Employee {
 		this.empPassword = empPassword;
 		this.managerID = managerID;
 }
+	
+	public Employee(String empFirstName, String empLastName, String empEmail, String empPassword) {
+		super();
+		this.empFirstName = empFirstName;
+		this.empLastName = empLastName;
+		this.empEmail = empEmail;
+		this.empPassword = empPassword;
+		
+}
 
 	public Employee(double empID, String empFirstName, String empLastName, String empEmail, String empPassword,
 		double managerID) {
@@ -32,6 +41,16 @@ public class Employee {
 		this.managerID = managerID;
 }
 
+	
+	public Employee(double empID, String empFirstName, String empLastName, String empEmail, double managerID) {
+		super();
+		this.empID = empID;
+		this.empFirstName = empFirstName;
+		this.empLastName = empLastName;
+		this.empEmail = empEmail;
+		this.managerID = managerID;
+}
+	
 	public Employee() {
 		super();
 	}
@@ -81,8 +100,8 @@ public class Employee {
 	//To string
 	@Override
 	public String toString() {
-		return "Employee [empID=" + empID + ", empFirstName=" + empFirstName + ", empLastName=" + empLastName
-			+ ", empEmail=" + empEmail + ", empPassword=" + empPassword + ", managerID=" + managerID + "]";
+		return "Employee ID=" + empID + ", First Name: " + empFirstName + ", Last Name: " + empLastName
+			+ ", Email: " + empEmail + ", Password: " + empPassword + ", Manager ID=" + managerID ;
 	}
 
 
