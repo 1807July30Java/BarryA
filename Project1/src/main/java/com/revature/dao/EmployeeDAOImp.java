@@ -12,28 +12,47 @@ import com.revature.pojo.Employee;
 import com.revature.util.ConnectionUtil;
 
 public class EmployeeDAOImp implements EmployeeDAO {
-	private String filename = "connectionProperties";
+	private String filename = "connection.properties";
 /************************************************************************************************************************************************************/
 	//Authentication Process
 	@Override
 	public boolean authenticate(String email, String password) {
+		System.out.println("Entered authenticate!");
+		
+		
 		if (email == null || password == null) {
 			return false;
 		}
+		
+		System.out.println("Pass null check!");
+		Employee emp = new Employee() ;
 		PreparedStatement pstmt = null;
 		try(Connection con = ConnectionUtil.getConnectionFromFile(filename)){
 			String sql = "SELECT * FROM EMPLOYEE WHERE EMP_EMAIL = ? AND EMP_PASSWORD= ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, email);
 			pstmt.setString(2, password);
-		if (pstmt.executeUpdate()>0) {
+			ResultSet rs = pstmt.executeQuery();
+			
+		if (rs.next()) {
+			System.out.println("Inside if statement");
+			String empFirstName = rs.getString("EMP_FNAME");
+			String empLastName = rs.getString("EMP_LNAME");
+			String empEmail = rs.getString("EMP_EMAIL");
+			String empPassword = rs.getString("EMP_PASSWORD");
+			emp.setEmpEmail(empEmail);
+			emp.setEmpFirstName(empFirstName);
+			emp.setEmpLastName(empLastName);
+			emp.setEmpPassword(empPassword);
 			return true;
 		}
+			
 		}catch (SQLException e) {	
 			return false;
 		}catch (IOException e) {
 			return false;
 		}
+		
 	
 		return false;
 	}

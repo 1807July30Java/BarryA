@@ -21,8 +21,10 @@ public class ConnectionUtil {
 		
 		
 		Properties prop = new Properties();
-		InputStream in = new FileInputStream(filename);
-		prop.load(in);
+//		InputStream in = new FileInputStream(filename);
+//		prop.load(in);
+		ClassLoader loader = Thread.currentThread().getContextClassLoader();
+		prop.load(loader.getResourceAsStream(filename));
 		String url = prop.getProperty("url");
 		String username = prop.getProperty("username");
 		String password = prop.getProperty("password");

@@ -1,0 +1,23 @@
+.main{
+  width: 100%;
+  font-size: 15pt;
+  align-items: center;
+ 
+  background-image: url("https://healthpayerintelligence.com/images/site/article_categories/Value_Based_Care.jpg");
+  
+}
+
+.userlog{
+  width: 90%
+  color: black;
+  font-size: 12pt;
+  background-color: white;
+  text-align: center;
+}
+
+.row{
+  display: table;
+
+  border-top: 500px;
+
+}

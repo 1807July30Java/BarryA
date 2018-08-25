@@ -17,10 +17,10 @@ public class MainTest {
 		
 		Employee emp = new Employee( "Papa"	, "Omar", "dummyentry@breimb.com","password");
 
-		System.out.println(obj.authenticate(email, password));
-		for (Employee empp : obj.getEmployeeByManager(2)) {
-			System.out.println(empp);
-		}
+		ServiceLink obj1 = new ServiceLink();
+		
+		obj1.authenticateUser(email, password);
+
 		
 		
 	
