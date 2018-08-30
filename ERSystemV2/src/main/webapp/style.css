@@ -1,0 +1,36 @@
+.main{
+  width: 100%;
+  font-size: 15pt;
+  align-items: center;
+ 
+  background-image: url("https://ak2.picdn.net/shutterstock/videos/11920262/thumb/12.jpg");
+  
+}
+
+.userlog{
+  width: 90%
+  color: black;
+  font-size: 12pt;
+  background-color: white;
+  text-align: center;
+}
+
+.row{
+  display: table;
+
+  border-top: 500px;
+
+}
+#managerOptio {
+	  height: 100%;
+  color: white;
+  font-size: 15pt;
+  background-color: white;
+  background-color: white;
+  align-items: center;
+  
+}
+.h2 {
+	 background-color: white;
+	
+}
