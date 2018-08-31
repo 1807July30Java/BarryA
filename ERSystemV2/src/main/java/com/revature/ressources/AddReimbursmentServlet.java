@@ -62,7 +62,7 @@ public class AddReimbursmentServlet extends HttpServlet {
 			while (is.read(buffer) != -1) {
 				os.write(buffer);
 			}}catch (Exception e) {
-				System.out.println("Error uploading!!!");
+				
 				e.printStackTrace();
 			}finally {
 				if (is != null)

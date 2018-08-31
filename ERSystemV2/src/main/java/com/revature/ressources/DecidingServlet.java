@@ -42,7 +42,7 @@ public class DecidingServlet extends HttpServlet {
 			String json = om.writeValueAsString(obj.viewByPending(email));
 			response.getWriter().write(json);
 		}else {
-			System.out.println("DoneElse!");
+			
 			response.setContentType("application/json");
 			String json = null;
 			response.getWriter().write(json);
@@ -62,7 +62,7 @@ public class DecidingServlet extends HttpServlet {
 
 		
 		if (obj.appDeny(reimbID, status, email)) {
-			System.out.println("made it");
+			
 			request.getRequestDispatcher("action.html").forward(request, response);
 		}else {
 			response.sendRedirect("appro");

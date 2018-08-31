@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.revature.dao.EmployeeDAOImp;
 import com.revature.logic.ServiceLink;
 
 /**
@@ -37,14 +38,13 @@ public class EditProfileServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ServiceLink obj = new ServiceLink();
+		EmployeeDAOImp emp = new EmployeeDAOImp();
 		 HttpSession session = request.getSession(false);
 		 String firstName = request.getParameter("firstName");
 		 String password = request.getParameter("password");
 		 String lastName = request.getParameter("lastName");
 		String email =  (String) session.getAttribute("email");
-		System.out.println("email is "+ email);
-		
-		
+
 		if (obj.updateUser(firstName, lastName, password, email)) {
 			session.setAttribute("email", email);
 			session.setAttribute("firstName", obj.firstName(email) );

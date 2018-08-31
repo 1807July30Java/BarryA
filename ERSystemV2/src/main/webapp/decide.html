@@ -25,7 +25,7 @@
             </li> -->
           </ul>
           <span class="navbar-text" style="color: white !important">
-            Bank Reimbursment Systemt <br>
+            Bank Reimbursement Systemt <br>
             <a class="nav-link" href="logout" style="color: white !important">Logout </a>
           </span>
         </div>
@@ -50,27 +50,18 @@
     </table>
       </div>
       
-		<div>
-			<h1 class="h2" > <center> Approve/Deny </center></h1>
-		
-			<form method="post" action="decide">
- 				<div class="row">
- 				<fieldset>
- 					<div class="col" >
-    			 		<input required type="number" class="form-control" name="reimbID" placeholder="Reimbursement ID" style="font-size: 14pt !important">
-   				 	</div>
- 				</fieldset>
-   					 
-    			<div class="col">
-     		 		<input required type="text" class="form-control" name="status" placeholder="Set Status " style="font-size: 14pt !important">
-    			</div>
-    			<div class="col-auto my-1">
-      				<button type="submit" class="login100-form-btn" style="font-size: 12pt !important" value="decide">Submit</button>
-    			</div>
+			
+ 				<div class="row" style="text-align:center;">
+ 				
+    			<input type="button" class="login100-form-btn"  value="Approve" onclick = "getSelectedApprove('tableBody')" /> 
+    			<br>
+    			<input type="button" class="login100-form-btn" value="Denied" onclick = "getSelectedDeny('tableBody')" /> 
+    		
   				</div>
-			</form>
+			
 		
-		</div>
+	
+
 
 
 

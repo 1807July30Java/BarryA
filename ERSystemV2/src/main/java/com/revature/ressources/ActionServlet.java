@@ -42,7 +42,7 @@ public class ActionServlet extends HttpServlet {
 			String json = om.writeValueAsString(obj.viewAllTrans());
 			response.getWriter().write(json);
 		}else {
-			System.out.println("DoneElse!");
+			
 			response.setContentType("application/json");
 			String json = null;
 			response.getWriter().write(json);

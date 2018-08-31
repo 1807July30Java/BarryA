@@ -130,9 +130,7 @@ public class EmployeeDAOImp implements EmployeeDAO {
 /************************************************************************************************************************************************************/
 	@Override
 	public boolean updateEmpFirstName(String firstName, double id) {
-		if (firstName== null ) {
-			return false;
-		} 
+		EmployeeDAOImp obj = new EmployeeDAOImp();
 		PreparedStatement pstmt = null;
 		
 		try(Connection con = ConnectionUtil.getConnectionFromFile(filename)){
@@ -154,9 +152,7 @@ public class EmployeeDAOImp implements EmployeeDAO {
 /************************************************************************************************************************************************************/
 	@Override
 	public boolean updateEmpLastName(String lastName, double id) {
-		if (lastName== null ) {
-			return false;
-		} 
+		
 		PreparedStatement pstmt = null;
 		
 		try(Connection con = ConnectionUtil.getConnectionFromFile(filename)){
@@ -203,9 +199,7 @@ public class EmployeeDAOImp implements EmployeeDAO {
 	
 /***************************************************************************************************************************************************************/
 	public boolean updateEmpPassword(String password, double id) {
-		if (password== null ) {
-			return false;
-		} 
+		
 		PreparedStatement pstmt = null;
 		
 		try(Connection con = ConnectionUtil.getConnectionFromFile(filename)){

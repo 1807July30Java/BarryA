@@ -176,12 +176,12 @@ List<Reimbursment> lR = new ArrayList<>();
 	
 	try(Connection con = ConnectionUtil.getConnectionFromFile(filename)){
 		
-		String sql = "SELECT * FROM REIMBURSMENT WHERE REIMB_STATUS = ? AND MANAGER_ID = ?";
+		String sql = "SELECT * FROM REIMBURSMENT WHERE REIMB_STATUS = ? AND MANAGER_ID = ? ORDER BY REIMB_DATE_PROCESSED DESC";
 		pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, status);
 		pstmt.setDouble(2, managerID);
 		ResultSet rs = pstmt.executeQuery();
-		System.out.println("execute query");
+	
 		while (rs.next()) {
 			double reimbID = rs.getDouble("REIMB_ID");
 			double empID = rs.getDouble("EMP_ID");
@@ -215,7 +215,7 @@ List<Reimbursment> lR = new ArrayList<>();
 
 	PreparedStatement pstmt = null;
 	try(Connection con = ConnectionUtil.getConnectionFromFile(filename)){
-		String sql = "SELECT * FROM REIMBURSMENT WHERE EMP_ID = ?";
+		String sql = "SELECT * FROM REIMBURSMENT WHERE EMP_ID = ? ORDER BY REIMB_DATE_PROCESSED DESC";
 		pstmt = con.prepareStatement(sql);
 		pstmt.setDouble(1, employeeID);
 		ResultSet rs = pstmt.executeQuery();
@@ -252,7 +252,7 @@ public List<Reimbursment> viewEverything() {
 	
 	
 	try(Connection con = ConnectionUtil.getConnectionFromFile(filename)){
-		String sql = "SELECT * FROM REIMBURSMENT";
+		String sql = "SELECT * FROM REIMBURSMENT ORDER BY REIMB_DATE_CLOSED DESC";
 		Statement stmt = con.prepareStatement(sql);
 		
 		ResultSet rs = stmt.executeQuery(sql);
@@ -296,7 +296,7 @@ public byte[] getImage(double reimbID) {
 		con.close();
 		
 	} catch (SQLException e) {
-		System.out.println("Could not update database to decline ticket");
+		
 	} catch (IOException e) {
 		e.printStackTrace();
 	}

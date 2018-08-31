@@ -39,10 +39,27 @@ public class ServiceLink {
 	
 	public boolean updateUser (String firstName, String lastName, String password, String email) {
 		double id = empDAO.getEmployeeInfo(email).getEmpID();
+		if (firstName == "") {
+			firstName = empDAO.getEmployeeInfo(email).getEmpFirstName();
+		}
+		
+		if (lastName == "") {
+			lastName = empDAO.getEmployeeInfo(email).getEmpLastName();
+		}
+		
+		if (password.equals("") ) {
+			password = empDAO.getEmployeeInfo(email).getEmpPassword();
+		}
+		if (password == "" ) {
+			password = empDAO.getEmployeeInfo(email).getEmpPassword();
+		}
+		if (password == null) {
+			password = empDAO.getEmployeeInfo(email).getEmpPassword();
+		}
 		boolean result = false;
 		
 		if (empDAO.updateEmpFirstName(firstName, id) && empDAO.updateEmpLastName(lastName, id) && empDAO.updateEmpPassword(password, id) ) {
-			System.out.println("Update Success!");
+			
 			result = true;
 			
 		}

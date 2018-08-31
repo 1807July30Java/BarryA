@@ -41,7 +41,7 @@ public class TransactionServlet extends HttpServlet {
 			String json = om.writeValueAsString(obj.viewAppliedReimb(email));
 			response.getWriter().write(json);
 		}else {
-			System.out.println("DoneElse!");
+			
 			response.setContentType("application/json");
 			String json = null;
 			response.getWriter().write(json);
